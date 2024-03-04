@@ -21,7 +21,7 @@ st.sidebar.markdown("**• Nama: Nabilah Azharudin**")
 
 st.sidebar.title("Dataset Bike Share")
 # Show the dataset
-if st.sidebar.checkbox("Show Dataset"):
+if st.sidebar.checkbox("Show Data"):
     st.subheader("Raw Data")
     st.write(data)
 
@@ -54,7 +54,7 @@ with col1:
 
     season_count = data.groupby("season_label")["cnt"].sum().reset_index()
     fig_season_count = px.bar(season_count, x="season_label",
-                              y="cnt", title="Season-wise Bike Share Count")
+                              y="cnt", title="Season of Bike Share Count")
     st.plotly_chart(fig_season_count, use_container_width=True,
                     height=400, width=600)
 
@@ -64,7 +64,7 @@ with col2:
 
     weather_count = data.groupby("weathersit")["cnt"].sum().reset_index()
     fig_weather_count = px.bar(weather_count, x="weathersit",
-                               y="cnt", title="Weather Situation-wise Bike Share Count")
+                               y="cnt", title="Weather Situation of Bike Share Count")
     # Mengatur tinggi dan lebar gambar
     st.plotly_chart(fig_weather_count, use_container_width=True,height=400, width=800)
 
@@ -73,30 +73,30 @@ with col2:
 # st.subheader("Hourly Bike Share Count")
 hourly_count = data.groupby("hr")["cnt"].sum().reset_index()
 fig_hourly_count = px.line(
-    hourly_count, x="hr", y="cnt", title="Hourly Bike Share Count")
+    hourly_count, x="hr", y="cnt", title="Bike Share Count Based On Hour")
 st.plotly_chart(fig_hourly_count, use_container_width=True,
                 height=400, width=600)
 
 # Humidity vs. Bike Share Count
 # st.subheader("Humidity vs. Bike Share Count")
 fig_humidity_chart = px.scatter(
-    data, x="hum", y="cnt", title="Humidity vs. Bike Share Count")
+    data, x="hum", y="cnt", title="Humidity and Bike Share Count")
 st.plotly_chart(fig_humidity_chart)
 
 # Wind Speed vs. Bike Share Count
 # st.subheader("Wind Speed vs. Bike Share Count")
 fig_wind_speed_chart = px.scatter(
-    data, x="windspeed", y="cnt", title="Wind Speed vs. Bike Share Count")
+    data, x="windspeed", y="cnt", title="Wind Speed and Bike Share Count")
 st.plotly_chart(fig_wind_speed_chart)
 
 # Temperature vs. Bike Share Count
 # st.subheader("Temperature vs. Bike Share Count")
 fig_temp_chart = px.scatter(data, x="temp", y="cnt",
-                            title="Temperature vs. Bike Share Count")
+                            title="Temperature and Bike Share Count")
 st.plotly_chart(fig_temp_chart, use_container_width=True,
                 height=400, width=800)
 
 # Show data source and description
 st.sidebar.title("About")
-st.sidebar.info("Dashboard ini menampilkan visualisasi untuk sekumpulan data Bike Share. "
-                "Dataset ini mengandung informasi mengenai penyewaan sepeda berdasarkan berbagai variabel seperti musim, suhu, kelembaban, dan faktor lainnya.")
+st.sidebar.info("Dashboard ini menampilkan visualisasi untuk dataset Bike Share. "
+                "Dataset ini terdapat informasi mengenai penyewaan sepeda berdasarkan beberapa variabel seperti musim, suhu, kelembaban, dan faktor lainnya.")
