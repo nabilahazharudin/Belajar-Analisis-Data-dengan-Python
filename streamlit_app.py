@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 def load_data():
-    data = pd.read_csv("/hour.csv")
+    data = pd.read_csv("hour.csv")
     return data
 
 
